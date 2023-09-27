@@ -4,7 +4,7 @@ Lite Slider is a simple slider component that uses CSS and JavaScript to create
 a lightweight and accessible alternative to popular slider libraries.
 
 
-## Quick start
+## Quick Start
 
 Include the CSS:
 
