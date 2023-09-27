@@ -21,7 +21,29 @@ this:
   </script>
 ```
 
-See index.html for working examples.
+Basic example:
+
+```
+    <div class="slider">
+      <div class="slider-nav hidden">
+        <button type="button" class="slider-button slider-prev">Previous</button>
+        <button type="button" class="slider-button slider-next">Next</button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img8.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img9.jpg"></div>
+      </div>
+    </div>
+```
+
+See index.html for more [examples](https://mikeh74.github.io/liteslider/).
 
 
 ## Slider CSS
