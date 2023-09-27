@@ -3,16 +3,13 @@
 Lite Slider is a simple slider component that uses CSS and JavaScript to create
 a lightweight and accessible alternative to popular slider libraries.
 
-
-## Quick Start
+## Quick Start
 
 Include the CSS:
 
 ```
-<link rel="stylesheet" href="./path/to/slider.css">
+<link rel="stylesheet" href="./liteslider/slider.css">
 ```
-
-Or create your own (see CSS section below).
 
 The slider.js is setup as an es6 module so can be included into a webpage like
 this:
@@ -36,5 +33,6 @@ any javacsript.
 The idea is to keep the amount of additional javascript to a bare minimum by
 using native CSS features as far as possible.
 
-In particular we are relying on [scroll-snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap) to ensure that slider elements line up to the start of
-the scroll area when a user scrolls.
+In particular we are relying on [scroll-snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap)
+to ensure that slider elements line up to the start of the scroll area when
+a user scrolls.
