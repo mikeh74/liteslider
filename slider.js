@@ -25,7 +25,7 @@ const slider = function({
       gutter: 20,
     },
   },
-  hideBtnClass = 'hidden',
+  hiddenClass = 'hidden',
 } = {}) {
   /**
    * Get a list of all the slider items on the page
@@ -36,7 +36,7 @@ const slider = function({
    * Initialise sliders from a NodeList based on the current selector
    */
   sliders.forEach((slider) => {
-    makeSlider(slider, responsive, hideBtnClass);
+    makeSlider(slider, responsive, hiddenClass);
   });
 };
 
