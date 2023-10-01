@@ -144,7 +144,6 @@ slider._onScrollEnd = function() {
   const handleScrollEnd = () => {
     that.checkButtons();
     that.checkPager();
-    that.isSliding = false;
   }
 
   // throttled scroll listener
@@ -152,17 +151,22 @@ slider._onScrollEnd = function() {
 
   this.sliderInner.addEventListener('scroll', throttledScrollHandler);
 
-  // if ('onscrollend' in window) {
-  //   this.sliderInner.addEventListener(
-  //       'scrollend', handleScrollEnd);
-  // } else {
-  //   // fall back to scroll listener with timeout for browsers
-  //   // that don't support scrollend
-  //   this.sliderInner.addEventListener('scroll', (event) => {
-  //     clearTimeout(window.scrollEndTimer);
-  //     window.scrollEndTimer = setTimeout( handleScrollEnd, 50);
-  //   });
-  // }
+  // Still need to deal with scroll end so that we can set isSliding to false
+  if ('onscrollend' in window) {
+    this.sliderInner.addEventListener(
+        'scrollend', function(){
+          that.isSliding = false;
+        });
+  } else {
+    // fall back to scroll listener with timeout for browsers
+    // that don't support scrollend
+    this.sliderInner.addEventListener('scroll', (event) => {
+      clearTimeout(window.scrollEndTimer);
+      window.scrollEndTimer = setTimeout( function(){
+        this.isSliding = false;
+      }, 50);
+    });
+  }
 };
 
 slider._keyboardNavigation = function() {
