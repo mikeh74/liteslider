@@ -306,6 +306,19 @@ function handlePagerClick(element, slider, sliderInner) {
   }
 }
 
+const throttle = function(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
 export {
   checkButtonState,
   debouncePromise,
@@ -315,4 +328,5 @@ export {
   isActive,
   setItemSize,
   slide,
+  throttle,
 };

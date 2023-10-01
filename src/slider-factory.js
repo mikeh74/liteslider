@@ -44,6 +44,7 @@ import {
   getResponsiveOptions,
   setItemSize,
   slide,
+  throttle,
 } from './utils.js';
 
 import makePager from './pager-factory.js';
@@ -146,17 +147,22 @@ slider._onScrollEnd = function() {
     that.isSliding = false;
   }
 
-  if ('onscrollend' in window) {
-    this.sliderInner.addEventListener(
-        'scrollend', handleScrollEnd);
-  } else {
-    // fall back to scroll listener with timeout for browsers
-    // that don't support scrollend
-    this.sliderInner.addEventListener('scroll', (event) => {
-      clearTimeout(window.scrollEndTimer);
-      window.scrollEndTimer = setTimeout( handleScrollEnd, 50);
-    });
-  }
+  // throttled scroll listener
+  const throttledScrollHandler = throttle(handleScrollEnd, 50);
+
+  this.sliderInner.addEventListener('scroll', throttledScrollHandler);
+
+  // if ('onscrollend' in window) {
+  //   this.sliderInner.addEventListener(
+  //       'scrollend', handleScrollEnd);
+  // } else {
+  //   // fall back to scroll listener with timeout for browsers
+  //   // that don't support scrollend
+  //   this.sliderInner.addEventListener('scroll', (event) => {
+  //     clearTimeout(window.scrollEndTimer);
+  //     window.scrollEndTimer = setTimeout( handleScrollEnd, 50);
+  //   });
+  // }
 };
 
 slider._keyboardNavigation = function() {
@@ -197,13 +203,14 @@ slider.getItemsToShow = function() {
 
 slider.checkPager = function() {
 
-  if(this.pager.getPageCount() === 1) {
-    this.pagerEl.classList.add(this.hiddenClass);
-  } else {
-    this.pagerEl.classList.remove(this.hiddenClass);
-  }
-
   if (this.pager) {
+
+    if(this.pager.getPageCount() === 1) {
+      this.pagerEl.classList.add(this.hiddenClass);
+    } else {
+      this.pagerEl.classList.remove(this.hiddenClass);
+    }
+
     this.slider.querySelectorAll(
         '.slider-pager-item').forEach((sliderItem) => {
       sliderItem.classList.remove('active');
