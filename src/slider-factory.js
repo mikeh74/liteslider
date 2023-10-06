@@ -45,6 +45,7 @@ import {
   setItemSize,
   slide,
   throttle,
+  onScrollEnd,
 } from './utils.js';
 
 import makePager from './pager-factory.js';
@@ -143,30 +144,18 @@ slider._onScrollEnd = function() {
 
   const handleScrollEnd = () => {
     that.checkButtons();
-    that.checkPager();
+    that.isSliding = false;
   }
+
+  const handlePagerOnScroll = () => {
+    that.checkPager();
+  };
 
   // throttled scroll listener
-  const throttledScrollHandler = throttle(handleScrollEnd, 50);
-
+  const throttledScrollHandler = throttle(handlePagerOnScroll, 50);
   this.sliderInner.addEventListener('scroll', throttledScrollHandler);
 
-  // Still need to deal with scroll end so that we can set isSliding to false
-  if ('onscrollend' in window) {
-    this.sliderInner.addEventListener(
-        'scrollend', function(){
-          that.isSliding = false;
-        });
-  } else {
-    // fall back to scroll listener with timeout for browsers
-    // that don't support scrollend
-    this.sliderInner.addEventListener('scroll', (event) => {
-      clearTimeout(window.scrollEndTimer);
-      window.scrollEndTimer = setTimeout( function(){
-        this.isSliding = false;
-      }, 50);
-    });
-  }
+  onScrollEnd(this.sliderInner, handleScrollEnd);
 };
 
 slider._keyboardNavigation = function() {

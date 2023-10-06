@@ -319,6 +319,25 @@ const throttle = function(func, limit) {
   };
 }
 
+const onScrollEnd = function (element, func, ...args) {
+  const context = this;
+  if ('onscrollend' in window) {
+    element.addEventListener(
+        'scrollend', () => {
+          func.apply(context, args);
+        });
+  } else {
+    // fall back to scroll listener with timeout for browsers
+    // that don't support scrollend
+    element.addEventListener('scroll', (event) => {
+      clearTimeout(window.scrollEndTimer);
+      window.scrollEndTimer = setTimeout(() => {
+        func.apply(context, args);
+      }, 50);
+    });
+  };
+};
+
 export {
   checkButtonState,
   debouncePromise,
@@ -329,4 +348,5 @@ export {
   setItemSize,
   slide,
   throttle,
+  onScrollEnd,
 };
