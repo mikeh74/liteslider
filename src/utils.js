@@ -319,6 +319,13 @@ const throttle = function(func, limit) {
   };
 }
 
+/**
+ * Normalise the scroll event across browsers
+ *
+ * @param {HTMLElement} element
+ * @param {Function} func
+ * @param  {...any} args
+ */
 const onScrollEnd = function (element, func, ...args) {
   const context = this;
   if ('onscrollend' in window) {
