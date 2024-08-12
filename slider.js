@@ -9,19 +9,19 @@ const slider = function({
   container = '.slider',
   responsive = {
     0: {
-      items: 1,
-      gutter: 20,
-    },
-    576: {
-      items: 2,
-      gutter: 20,
-    },
-    768: {
       items: 3,
       gutter: 20,
     },
+    576: {
+      items: 3,
+      gutter: 20,
+    },
+    768: {
+      items: 6,
+      gutter: 20,
+    },
     992: {
-      items: 4,
+      items: 6,
       gutter: 20,
     },
   },
