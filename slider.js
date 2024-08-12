@@ -49,22 +49,18 @@ const makeShorts = function ({
 
   const shorts = document.querySelectorAll(selector);
 
-  console.log('shorts', shorts);
+  const attrSelector = '[' + itemDataAttribute + ']';
 
   shorts.forEach((short) => {
-    const els = short.querySelectorAll('[' + itemDataAttribute + ']');
-
-    console.log('els', els);
-
+    const els = short.querySelectorAll(attrSelector);
     const videoIds = Array.from(els).map((el) => el.getAttribute(itemDataAttribute));
 
     short.addEventListener('click', (e) => {
-      if (!e.target.closest('[' + itemDataAttribute + ']')) {
+      if (!e.target.closest(attrSelector)) {
         return;
       }
 
-      const videoId = e.target.closest(
-        '[' + itemDataAttribute + ']')
+      const videoId = e.target.closest(attrSelector)
         .getAttribute(itemDataAttribute);
       player.videoListSet(videoIds);
       player.play(videoId);
@@ -73,21 +69,3 @@ const makeShorts = function ({
 };
 
 makeShorts();
-
-// const shorts = document.querySelectorAll('.slider-shorts');
-
-// shorts.forEach((short) => {
-
-//   short.addEventListener('click', (e) => {
-//     const els = short.querySelectorAll('[data-ytshort-id]');
-//     const videoIds = Array.from(els).map((el) => el.getAttribute('data-ytshort-id'));
-
-//     if (!e.target.closest('[data-ytshort-id]')) {
-//       return;
-//     }
-
-//     const videoId = e.target.closest('[data-ytshort-id]').getAttribute('data-ytshort-id');
-//     player.videoListSet(videoIds);
-//     player.play(videoId);
-//   });
-// });
