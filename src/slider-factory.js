@@ -18,7 +18,7 @@
  * @property {HTMLElement} prevButton - The previous slide button element.
  * @property {HTMLElement} nextButton - The next slide button element.
  * @property {HTMLElement} pagerEl - The pager element.
- * @property {string} hideBtnClass - The class name to hide the navigation
+ * @property {string} hiddenClass - The class name to hide the navigation
  * buttons.
  * @property {Object} pager - The pager object with methods to render and set
  * active pager item.
@@ -44,6 +44,8 @@ import {
   getResponsiveOptions,
   setItemSize,
   slide,
+  throttle,
+  onScrollEnd,
 } from './utils.js';
 
 import makePager from './pager-factory.js';
@@ -53,7 +55,7 @@ const slider = {};
 slider.init = function(
     sliderEl,
     responsive,
-    hideBtnClass = 'hidden') {
+    hiddenClass = 'hidden') {
   // reference the responsive object
   this.responsive = responsive;
   this.slider = sliderEl;
@@ -68,7 +70,7 @@ slider.init = function(
   this.prevButton = this.slider.querySelector('.slider-prev');
   this.nextButton = this.slider.querySelector('.slider-next');
   this.pagerEl = this.slider.querySelector('.slider-pager');
-  this.hideBtnClass = hideBtnClass;
+  this.hiddenClass = hiddenClass;
 
   if (this.pagerEl) {
     this.pager = makePager(this);
@@ -142,21 +144,18 @@ slider._onScrollEnd = function() {
 
   const handleScrollEnd = () => {
     that.checkButtons();
-    that.checkPager();
     that.isSliding = false;
   }
 
-  if ('onscrollend' in window) {
-    this.sliderInner.addEventListener(
-        'scrollend', handleScrollEnd);
-  } else {
-    // fall back to scroll listener with timeout for browsers
-    // that don't support scrollend
-    this.sliderInner.addEventListener('scroll', (event) => {
-      clearTimeout(window.scrollEndTimer);
-      window.scrollEndTimer = setTimeout( handleScrollEnd, 50);
-    });
-  }
+  const handlePagerOnScroll = () => {
+    that.checkPager();
+  };
+
+  // throttled scroll listener
+  const throttledScrollHandler = throttle(handlePagerOnScroll, 50);
+  this.sliderInner.addEventListener('scroll', throttledScrollHandler);
+
+  onScrollEnd(this.sliderInner, handleScrollEnd);
 };
 
 slider._keyboardNavigation = function() {
@@ -178,9 +177,9 @@ slider.showHideButtons = function() {
   if (this.buttons != undefined) {
     const containerWidth = this.sliderInner.clientWidth;
     if (containerWidth >= this.tempTotalWidth) {
-      this.buttons.classList.add(this.hideBtnClass);
+      this.buttons.classList.add(this.hiddenClass);
     } else {
-      this.buttons.classList.remove(this.hideBtnClass);
+      this.buttons.classList.remove(this.hiddenClass);
     }
   }
 };
@@ -196,7 +195,15 @@ slider.getItemsToShow = function() {
 };
 
 slider.checkPager = function() {
+
   if (this.pager) {
+
+    if(this.pager.getPageCount() === 1) {
+      this.pagerEl.classList.add(this.hiddenClass);
+    } else {
+      this.pagerEl.classList.remove(this.hiddenClass);
+    }
+
     this.slider.querySelectorAll(
         '.slider-pager-item').forEach((sliderItem) => {
       sliderItem.classList.remove('active');
@@ -206,9 +213,9 @@ slider.checkPager = function() {
   }
 };
 
-const makeSlider = function(sliderElement, responsive, hideBtnClass) {
+const makeSlider = function(sliderElement, responsive, hiddenClass) {
   const obj = Object.create(slider);
-  obj.init(sliderElement, responsive, hideBtnClass);
+  obj.init(sliderElement, responsive, hiddenClass);
   return obj;
 };
 

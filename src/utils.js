@@ -306,6 +306,45 @@ function handlePagerClick(element, slider, sliderInner) {
   }
 }
 
+const throttle = function(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+/**
+ * Normalise the scroll event across browsers
+ *
+ * @param {HTMLElement} element
+ * @param {Function} func
+ * @param  {...any} args
+ */
+const onScrollEnd = function (element, func, ...args) {
+  const context = this;
+  if ('onscrollend' in window) {
+    element.addEventListener(
+        'scrollend', () => {
+          func.apply(context, args);
+        });
+  } else {
+    // fall back to scroll listener with timeout for browsers
+    // that don't support scrollend
+    element.addEventListener('scroll', (event) => {
+      clearTimeout(window.scrollEndTimer);
+      window.scrollEndTimer = setTimeout(() => {
+        func.apply(context, args);
+      }, 50);
+    });
+  };
+};
+
 export {
   checkButtonState,
   debouncePromise,
@@ -315,4 +354,6 @@ export {
   isActive,
   setItemSize,
   slide,
+  throttle,
+  onScrollEnd,
 };
