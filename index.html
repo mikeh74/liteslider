@@ -25,6 +25,11 @@
       height: 100%;
     }
 
+    .ratio-9x16 {
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+    }
+
   </style>
 
   <link rel="stylesheet" href="./slider.css">
@@ -197,14 +202,14 @@
 
     <div class="slider">
       <div class="slider-nav hidden">
-        <button tabindex="-1" type="button" class="slider-button slider-prev">
+        <button type="button" class="slider-button slider-prev">
           <span class="hidden">Previous</span>
           <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
             <path id="Path" fill="#000000" fill-rule="evenodd" stroke="none"
               d="M 0 100 L 128 200 L 128 132 L 239 132 L 239 68 L 128 68 L 128 0 Z" />
           </svg>
         </button>
-        <button tabindex="-1" type="button" class="slider-button slider-next">
+        <button type="button" class="slider-button slider-next">
           <span class="hidden">Next</span>
           <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
             <path id="Arrow" fill="#000000" fill-rule="evenodd" stroke="none"
@@ -293,6 +298,37 @@
       </div>
     </div>
 
+    <div class="slider-shorts">
+      <div class="slider-nav hidden">
+        <button tabindex="-1" type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
+            <path id="Path" fill="#000000" fill-rule="evenodd" stroke="none"
+              d="M 0 100 L 128 200 L 128 132 L 239 132 L 239 68 L 128 68 L 128 0 Z" />
+          </svg>
+        </button>
+        <button tabindex="-1" type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
+            <path id="Arrow" fill="#000000" fill-rule="evenodd" stroke="none"
+              d="M 239 100 L 111 200 L 111 132 L 0 132 L 0 68 L 111 68 L 111 0 Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img1.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img2.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img3.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img4.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img5.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img6.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img7.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img8.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="nine-sixteen" alt="" src="./images/img9.jpg"></a></div>
+      </div>
+      <div class="slider-pager hidden"></div>
+    </div>
+
   </div>
 
   <script type="module">
@@ -315,6 +351,28 @@
         992: {
           items: 3,
           gutter: 30,
+        },
+      },
+    });
+
+    slider({
+      container: '.slider-shorts',
+      responsive: {
+        0: {
+          items: 1,
+          gutter: 0,
+        },
+        576: {
+          items: 3,
+          gutter: 10,
+        },
+        768: {
+          items: 4,
+          gutter: 10,
+        },
+        992: {
+          items: 6,
+          gutter: 10,
         },
       },
     });
