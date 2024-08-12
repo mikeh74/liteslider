@@ -62,6 +62,7 @@
   aspect-ratio: 9 / 16;
   object-fit: cover;
   object-position: center;
+  background-color: #d3d3d3;
 }
 
 @media screen and (min-width: 576px) {
@@ -122,4 +123,96 @@
 .slider-pager-item span {
   position: absolute;
   pointer-events: none;
+}
+
+.slider-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.slider-modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* // class to stop body scrolling when modal is :active */
+.slider-modal-open {
+  overflow: hidden;
+}
+
+.slider-modal-inner {
+  position: relative;
+  width: clamp(300px, 95vw, 418px);
+  max-height: 90vh;
+  /* aspect-ratio: 9/16; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #484848;
+}
+
+.slider-modal-content {
+  width: 100%;
+  height: auto;
+}
+
+.slider-modal-inner img, .slider-modal-inner iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9/16;
+  /* object-fit: contain;
+  object-position: center; */
+}
+
+.slider-modal--close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.slider-modal-buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  justify-content: center;
+}
+
+.slider-modal--indicators {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.slider-modal--indicator {
+  background-color: white;
+  flex: 0 1 33%;
+  height: 0.2rem;
+}
+
+.slider-modal--indicator.active {
+  height: 0.3rem;
+  flex: 0 1 50%;
 }
