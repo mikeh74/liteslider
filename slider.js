@@ -1,6 +1,5 @@
 // Dependencies: slider-factory.js, pager-factory.js, utils.js
 import makeSlider from './src/slider-factory.js';
-import player from './src/shorts-player.js';
 
 /**
  *
@@ -42,30 +41,3 @@ const slider = function ({
 };
 
 export default slider;
-
-const makeShorts = function ({
-  selector = '.slider-shorts',
-  itemDataAttribute = 'data-ytshort-id' } = {}) {
-
-  const shorts = document.querySelectorAll(selector);
-
-  const attrSelector = '[' + itemDataAttribute + ']';
-
-  shorts.forEach((short) => {
-    const els = short.querySelectorAll(attrSelector);
-    const videoIds = Array.from(els).map((el) => el.getAttribute(itemDataAttribute));
-
-    short.addEventListener('click', (e) => {
-      if (!e.target.closest(attrSelector)) {
-        return;
-      }
-
-      const videoId = e.target.closest(attrSelector)
-        .getAttribute(itemDataAttribute);
-      player.videoListSet(videoIds);
-      player.play(videoId);
-    });
-  });
-};
-
-makeShorts();

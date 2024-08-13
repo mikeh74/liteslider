@@ -173,14 +173,14 @@
   object-position: center; */
 }
 
-.slider-modal--close {
+/* .slider-modal--close {
   position: absolute;
   top: -2.5rem;
   right: 0;
   padding: 0.5rem;
   cursor: pointer;
   color: white;
-}
+} */
 
 .slider-modal-buttons {
   position: absolute;
