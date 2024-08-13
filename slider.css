@@ -125,7 +125,7 @@
   pointer-events: none;
 }
 
-#slider-modal {
+#shorts-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -138,18 +138,18 @@
   z-index: 1100;
 }
 
-#slider-modal.active {
+#shorts-modal.active {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* // class to stop body scrolling when modal is :active */
-.slider-modal-open {
+.shorts-modal--open {
   overflow: hidden;
 }
 
-.slider-modal-inner {
+.shorts-modal--inner {
   position: relative;
   width: clamp(300px, 95vw, 418px);
   max-height: 90vh;
@@ -160,12 +160,12 @@
   background-color: #484848;
 }
 
-.slider-modal-content {
+.shorts-modal--content {
   width: 100%;
   height: auto;
 }
 
-.slider-modal-inner img, .slider-modal-inner iframe {
+.shorts-modal--inner img, .shorts-modal--inner iframe {
   width: 100%;
   height: auto;
   aspect-ratio: 9/16;
@@ -173,7 +173,7 @@
   object-position: center; */
 }
 
-/* .slider-modal--close {
+/* .shorts-modal--button-close {
   position: absolute;
   top: -2.5rem;
   right: 0;
@@ -182,7 +182,7 @@
   color: white;
 } */
 
-.slider-modal-buttons {
+.shorts-modal--buttons {
   position: absolute;
   left: 0;
   right: 0;
@@ -194,7 +194,7 @@
   justify-content: center;
 }
 
-.slider-modal--indicators {
+.shorts-modal--indicators {
   position: absolute;
   top: -1rem;
   left: 0;
@@ -206,13 +206,13 @@
   padding: 0.5rem;
 }
 
-.slider-modal--indicator {
+.shorts-modal--indicator {
   background-color: white;
   flex: 0 1 33%;
   height: 0.2rem;
 }
 
-.slider-modal--indicator.active {
+.shorts-modal--indicator.active {
   height: 0.3rem;
   flex: 0 1 50%;
 }
