@@ -144,16 +144,8 @@ const ShortsPlayer = function(){
     videos.forEach((video, i) => {
       const indicator = document.createElement('span');
       indicator.classList.add('slider-modal--indicator');
-      indicator.dataset.index = i;
       indicators.appendChild(indicator);
     });
-
-    // indicators.addEventListener('click', (e) => {
-    //   if (e.target.classList.contains('slider-modal--indicator')) {
-    //     const index = e.target.dataset.index;
-    //     setPlayer(videos[index]);
-    //   }
-    // });
   }
 
   const setActiveIndicator = function(){
@@ -192,7 +184,6 @@ const initShortsModal = function ({
   itemDataAttribute = 'data-ytshort-id' } = {}) {
 
   const shorts = document.querySelectorAll(selector);
-
   const attrSelector = '[' + itemDataAttribute + ']';
 
   shorts.forEach((short) => {
