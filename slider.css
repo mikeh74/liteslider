@@ -152,17 +152,16 @@
 .shorts-modal--inner {
   position: relative;
   width: clamp(300px, 95vw, 418px);
-  max-height: 90vh;
+  max-height: 80vh;
   /* aspect-ratio: 9/16; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #484848;
 }
 
 .shorts-modal--content {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  background-color: #484848;
 }
 
 .shorts-modal--inner img, .shorts-modal--inner iframe {

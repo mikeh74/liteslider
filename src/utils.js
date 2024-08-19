@@ -139,6 +139,9 @@ const _scrollToPrevious = function(container, gutter, positions) {
    * @return {Number}
    */
 function _getScrollTo(container, elements, direction, gutter) {
+
+  console.log([container, elements, direction, gutter])
+
   // let scrollPosition = container.scrollLeft;
   const elementWidth = elements[0].clientWidth + gutter;
 
