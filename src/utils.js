@@ -263,16 +263,17 @@ function checkButtonState(sliderInner, prevButton, nextButton) {
  */
 const setItemSize = function(slider) {
   const containerWidth = slider.sliderInner.clientWidth;
+  const gap = slider.getGap();
 
   const itemWidth = _getItemSize(
       containerWidth,
       slider.getItemsToShow(),
-      slider.getGap());
+      gap);
 
-  slider.sliderInner.style.gap = '0 ' + slider.getGap() + 'px';
+  slider.sliderInner.style.gap = '0 ' + gap + 'px';
   _setElementWidths(slider.elements, itemWidth);
 
-  slider.tempTotalWidth = itemWidth * slider.elements.length;
+  slider.tempTotalWidth = itemWidth * slider.elements.length + gap * (slider.elements.length - 1);
   return slider;
 };
 

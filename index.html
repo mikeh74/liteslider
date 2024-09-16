@@ -25,6 +25,10 @@
       height: 100%;
     }
 
+    .d-none {
+      display: none;
+    }
+
   </style>
 
   <link rel="stylesheet" href="./slider.css">
@@ -173,6 +177,38 @@
       </div>
     </div>
 
+    <h2>Example with custom settings 2</h2>
+
+    <div class="slider3">
+      <div class="slider-nav d-none">
+        <button type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
+            <path id="Path" fill="#000000" fill-rule="evenodd" stroke="none"
+              d="M 0 100 L 128 200 L 128 132 L 239 132 L 239 68 L 128 68 L 128 0 Z" />
+          </svg>
+        </button>
+        <button type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg width="30" height="25" viewBox="0 0 239 200" xmlns="http://www.w3.org/2000/svg">
+            <path id="Arrow" fill="#000000" fill-rule="evenodd" stroke="none"
+              d="M 239 100 L 111 200 L 111 132 L 0 132 L 0 68 L 111 68 L 111 0 Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img8.jpg"></div>
+        <!-- <div class="slider-item"><img class="four-three" alt="" src="./images/img9.jpg"></div> -->
+      </div>
+    </div>
+
     <h2>Example Slider where buttons hidden on desktop</h2>
 
     <p>In this example the buttons will remain hidden on desktop as there are
@@ -317,6 +353,25 @@
           gutter: 30,
         },
       },
+    });
+
+    slider({
+      container: '.slider3',
+      responsive: {
+        0: {
+          items: 3,
+          gutter: 0,
+        },
+        576: {
+          items: 5,
+          gutter: 20,
+        },
+        992: {
+          items: 8,
+          gutter: 30,
+        },
+      },
+      hiddenClass: 'd-none',
     });
 
   </script>
