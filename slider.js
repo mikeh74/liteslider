@@ -5,7 +5,7 @@ import makeSlider from './src/slider-factory.js';
  *
  * @param {Object} Options object
  */
-const slider = function ({
+const slider = function({
   container = '.slider',
   responsive = {
     0: {
