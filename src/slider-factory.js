@@ -194,6 +194,15 @@ slider.getItemsToShow = function() {
   return opts['items'];
 };
 
+slider.getPreview = function() {
+  const opts = getResponsiveOptions(this.responsive);
+  if (opts['preview']){
+    return parseInt(opts['preview'], 10);
+  }
+
+  return 0;
+}
+
 slider.checkPager = function() {
 
   if (this.pager) {

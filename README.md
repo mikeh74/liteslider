@@ -8,7 +8,7 @@ a lightweight and accessible alternative to popular slider libraries.
 Include the CSS:
 
 ```
-<link rel="stylesheet" href="./liteslider/slider.css">
+<link rel="stylesheet" href="./liteslider/css/slider.css">
 ```
 
 The slider.js is setup as an es6 module so can be included into a webpage like

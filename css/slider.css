@@ -3,6 +3,18 @@
   display: none !important;
 }
 
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-wrapper::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255,0) 95%, rgba(255, 255, 255, 1) 100%);
+  inset: 0;
+  pointer-events: none;
+}
+
 .slider-inner {
   will-change: scroll-position;
   width: 100%;

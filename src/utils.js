@@ -266,7 +266,7 @@ const setItemSize = function(slider) {
   const gap = slider.getGap();
 
   const itemWidth = _getItemSize(
-      containerWidth,
+      containerWidth - slider.getPreview(),
       slider.getItemsToShow(),
       gap);
 
