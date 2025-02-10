@@ -5,14 +5,14 @@ import makeSlider from './src/slider-factory.js';
  * slider is just a wrapper function that initialises the slider
  * based on the options passed to it.
  * It also sets the default options for the slider.
- * 
+ *
  * Users can pass their own options to the slider function and override
  * the default options to customise the slider as required.
  *
  * @param {Object} Options object
  * @returns {void}
  */
-const slider = function({
+const slider = function ({
   container = '.slider',
   responsive = {
     0: {

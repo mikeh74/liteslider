@@ -1,4 +1,3 @@
-
 /**
  * Returns the current responsive options based on the current viewport
  *
@@ -8,8 +7,8 @@
 const getResponsiveOptions = (responsive) => {
   const viewportWidth = window.visualViewport.width;
   let responsiveItems = Object.keys(responsive).filter(
-      (key) => key < viewportWidth);
-  responsiveItems = responsiveItems.map((i) => Number(i));
+    key => key < viewportWidth);
+  responsiveItems = responsiveItems.map(i => Number(i));
   const key = Math.max(...responsiveItems);
   return responsive[key];
 };
@@ -24,8 +23,7 @@ const getResponsiveOptions = (responsive) => {
 function debouncePromise(func, delay) {
   let timeoutId;
 
-  return function(...args) {
-    // eslint-disable-next-line no-invalid-this
+  return function (...args) {
     const context = this;
 
     clearTimeout(timeoutId);
@@ -50,8 +48,8 @@ const _withinViewport = (element, parent) => {
   const parentRect = parent.getBoundingClientRect();
 
   return (
-    elementRect.left >= parentRect.left &&
-        elementRect.left <= parentRect.right
+    elementRect.left >= parentRect.left
+    && elementRect.left <= parentRect.right
   );
 };
 
@@ -78,7 +76,7 @@ const _getSliderItem = (index, elements) => {
    * @param {Number} gap - this css gap property width
    * @return {Number}
    */
-const _getItemSize = function(width, itemsToShow, gap) {
+const _getItemSize = function (width, itemsToShow, gap) {
   const tempWidth = width - (gap * (itemsToShow - 1));
   return tempWidth / itemsToShow;
 };
@@ -94,7 +92,7 @@ function _setElementWidths(elements, itemWidth) {
   });
 }
 
-const _makePositions = function(elements, elementWidth) {
+const _makePositions = function (elements, elementWidth) {
   const positions = [];
   for (let index = 0; index < elements.length; index++) {
     positions.push(elementWidth * index);
@@ -102,26 +100,28 @@ const _makePositions = function(elements, elementWidth) {
   return positions;
 };
 
-const _scrollToNext = function(container, gutter, positions) {
+const _scrollToNext = function (container, gutter, positions) {
   let scrollPosition = container.scrollLeft;
   scrollPosition = scrollPosition + container.clientWidth - gutter;
 
-  const filteredPositions = positions.filter((i) => i >= scrollPosition);
+  const filteredPositions = positions.filter(i => i >= scrollPosition);
   if (filteredPositions.length == 0) {
     return scrollPosition;
-  } else {
+  }
+  else {
     return Math.min(...filteredPositions);
   }
 };
 
-const _scrollToPrevious = function(container, gutter, positions) {
+const _scrollToPrevious = function (container, gutter, positions) {
   let scrollPosition = container.scrollLeft;
   scrollPosition = scrollPosition - container.clientWidth + gutter;
 
-  const filteredPositions = positions.filter((i) => i <= scrollPosition);
+  const filteredPositions = positions.filter(i => i <= scrollPosition);
   if (filteredPositions.length == 0) {
     return 0;
-  } else {
+  }
+  else {
     return Math.max(...filteredPositions);
   }
 };
@@ -170,10 +170,10 @@ function _getScrollTo(container, elements, direction, gutter) {
  * @param {HTMLElement} sliderInner
  * @param {Object} responsive
  */
-const slide = function(direction, sliderInner, gap) {
+const slide = function (direction, sliderInner, gap) {
   const els = sliderInner.querySelectorAll('.slider-item');
   const scrollPosition = _getScrollTo(
-      sliderInner, els, direction, gap);
+    sliderInner, els, direction, gap);
   sliderInner.scrollTo({
     left: scrollPosition,
     behavior: 'smooth',
@@ -218,9 +218,9 @@ function isActive(item, elements, activeIsSet, slider) {
   const itemNo = item.getAttribute('data-page-end');
   const innerItem = _getSliderItem(itemNo, elements);
 
-  if (!activeIsSet &&
-    innerItem &&
-    _withinViewport(innerItem, slider)) {
+  if (!activeIsSet
+    && innerItem
+    && _withinViewport(innerItem, slider)) {
     item.classList.add('active');
     activeIsSet = true;
   }
@@ -238,7 +238,8 @@ function checkButtonState(sliderInner, prevButton, nextButton) {
   if (prevButton) {
     if (sliderInner.scrollLeft < 50) {
       prevButton.setAttribute('disabled', true);
-    } else {
+    }
+    else {
       prevButton.removeAttribute('disabled');
     }
   }
@@ -248,7 +249,8 @@ function checkButtonState(sliderInner, prevButton, nextButton) {
   if (nextButton) {
     if (sliderInner.scrollLeft >= scrollMax - 50) {
       nextButton.setAttribute('disabled', true);
-    } else {
+    }
+    else {
       nextButton.removeAttribute('disabled');
     }
   }
@@ -261,14 +263,14 @@ function checkButtonState(sliderInner, prevButton, nextButton) {
  * @param { Object } slider
  * @return { Object }
  */
-const setItemSize = function(slider) {
+const setItemSize = function (slider) {
   const containerWidth = slider.sliderInner.clientWidth;
   const gap = slider.getGap();
 
   const itemWidth = _getItemSize(
-      containerWidth - slider.getPreview(),
-      slider.getItemsToShow(),
-      gap);
+    containerWidth - slider.getPreview(),
+    slider.getItemsToShow(),
+    gap);
 
   slider.sliderInner.style.gap = '0 ' + gap + 'px';
   _setElementWidths(slider.elements, itemWidth);
@@ -292,24 +294,24 @@ function handlePagerClick(element, slider, sliderInner) {
   if (scrollTo) {
     // remove active class from all pager items
     slider.querySelectorAll('.slider-pager-item')
-        .forEach((item) => {
-          item.classList.remove('active');
-        });
+      .forEach((item) => {
+        item.classList.remove('active');
+      });
 
     // add active class to the clicked pager item
     element.classList.add('active');
 
     // scroll the slider to the value of the pager item
     sliderInner.scrollTo({
-      'left': element.getAttribute('data-scrollto'),
-      'behavior': 'smooth',
+      left: element.getAttribute('data-scrollto'),
+      behavior: 'smooth',
     });
   }
 }
 
-const throttle = function(func, limit) {
+const throttle = function (func, limit) {
   let inThrottle;
-  return function() {
+  return function () {
     const args = arguments;
     const context = this;
     if (!inThrottle) {
@@ -318,7 +320,7 @@ const throttle = function(func, limit) {
       setTimeout(() => inThrottle = false, limit);
     }
   };
-}
+};
 
 /**
  * Normalise the scroll event across browsers
@@ -331,13 +333,14 @@ const onScrollEnd = function (element, func, ...args) {
   const context = this;
   if ('onscrollend' in window) {
     element.addEventListener(
-        'scrollend', () => {
-          func.apply(context, args);
-        });
-  } else {
+      'scrollend', () => {
+        func.apply(context, args);
+      });
+  }
+  else {
     // fall back to scroll listener with timeout for browsers
     // that don't support scrollend
-    element.addEventListener('scroll', (event) => {
+    element.addEventListener('scroll', () => {
       clearTimeout(window.scrollEndTimer);
       window.scrollEndTimer = setTimeout(() => {
         func.apply(context, args);

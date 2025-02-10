@@ -24,18 +24,18 @@ import {
 
 const pager = {};
 
-pager.init = function(slider) {
+pager.init = function (slider) {
   this.slider = slider;
   this.render();
   this.addEventListeners();
 };
 
-pager.getPageCount = function() {
+pager.getPageCount = function () {
   return Math.ceil(
-      this.slider.elements.length / this.slider.getItemsToShow());
+    this.slider.elements.length / this.slider.getItemsToShow());
 };
 
-pager.render = function() {
+pager.render = function () {
   this.slider.pagerEl.innerHTML = '';
   const itemsToShow = this.slider.getItemsToShow();
 
@@ -52,25 +52,25 @@ pager.render = function() {
     const dataLeft = sub[0].offsetLeft;
 
     const d = getButtonElement(
-        start, end,
-        this.slider.elements,
-        dataLeft, i);
+      start, end,
+      this.slider.elements,
+      dataLeft, i);
     this.slider.pagerEl.appendChild(d);
   }
 };
 
-pager.addEventListeners = function() {
+pager.addEventListeners = function () {
   const slider = this.slider;
 
   this.slider.pagerEl.addEventListener('click', (e) => {
     const el = e.target;
 
     handlePagerClick(
-        el, slider.slider, slider.sliderInner);
+      el, slider.slider, slider.sliderInner);
   });
 };
 
-pager.setActivePagerItem = function() {
+pager.setActivePagerItem = function () {
   const slider = this.slider;
   let items = slider.slider.querySelectorAll('.slider-pager-item');
 
@@ -81,10 +81,10 @@ pager.setActivePagerItem = function() {
   let activeIsSet = false;
   items.forEach((item) => {
     activeIsSet = isActive(
-        item,
-        slider.elements,
-        activeIsSet,
-        slider.slider);
+      item,
+      slider.elements,
+      activeIsSet,
+      slider.slider);
   });
 };
 
@@ -93,7 +93,7 @@ pager.setActivePagerItem = function() {
  * @param {Object} slider - The slider object to create the pager for.
  * @return {Pager} - The pager object.
  */
-const makePager = function(slider) {
+const makePager = function (slider) {
   const obj = Object.create(pager);
   obj.init(slider);
   return obj;

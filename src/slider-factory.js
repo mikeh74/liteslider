@@ -52,9 +52,9 @@ import makePager from './pager-factory.js';
 
 const slider = {};
 
-slider.init = function(
-    sliderEl,
-    responsive,
+slider.init = function (
+  sliderEl,
+  responsive,
     hiddenClass = 'hidden') {
   // reference the responsive object
   this.responsive = responsive;
@@ -79,38 +79,38 @@ slider.init = function(
   this.addListeners();
 };
 
-slider.moveToPrevious = function() {
+slider.moveToPrevious = function () {
   if (this.isSliding) return;
   this.isSliding = true;
   slide('previous',
-      this.sliderInner,
-      this.getGap());
-}
+    this.sliderInner,
+    this.getGap());
+};
 
-slider.moveToNext = function() {
+slider.moveToNext = function () {
   if (this.isSliding) return;
   this.isSliding = true;
   slide('next',
-      this.sliderInner,
-      this.getGap());
+    this.sliderInner,
+    this.getGap());
 };
 
-slider.checkButtons = function() {
+slider.checkButtons = function () {
   checkButtonState(
-      this.sliderInner,
-      this.prevButton,
-      this.nextButton);
+    this.sliderInner,
+    this.prevButton,
+    this.nextButton);
 };
 
-slider.addListeners = function() {
+slider.addListeners = function () {
   if (this.prevButton) {
     this.prevButton.addEventListener(
-        'click', this.moveToPrevious.bind(this));
+      'click', this.moveToPrevious.bind(this));
   }
 
   if (this.nextButton) {
     this.nextButton.addEventListener(
-        'click', this.moveToNext.bind(this));
+      'click', this.moveToNext.bind(this));
   }
 
   this._onScrollEnd();
@@ -118,7 +118,7 @@ slider.addListeners = function() {
   this._loadAndResize();
 };
 
-slider._loadAndResize = function() {
+slider._loadAndResize = function () {
   const setItemSizePromise = debouncePromise(setItemSize, 50);
 
   const handler = () => {
@@ -139,13 +139,13 @@ slider._loadAndResize = function() {
   window.addEventListener('resize', handler);
 };
 
-slider._onScrollEnd = function() {
+slider._onScrollEnd = function () {
   const that = this;
 
   const handleScrollEnd = () => {
     that.checkButtons();
     that.isSliding = false;
-  }
+  };
 
   const handlePagerOnScroll = () => {
     that.checkPager();
@@ -158,9 +158,9 @@ slider._onScrollEnd = function() {
   onScrollEnd(this.sliderInner, handleScrollEnd);
 };
 
-slider._keyboardNavigation = function() {
+slider._keyboardNavigation = function () {
   const that = this;
-  this.sliderInner.addEventListener('keydown', function(e) {
+  this.sliderInner.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft') {
       e.preventDefault();
       that.moveToPrevious();
@@ -173,48 +173,48 @@ slider._keyboardNavigation = function() {
   });
 };
 
-slider.showHideButtons = function() {
+slider.showHideButtons = function () {
   if (this.buttons != undefined) {
     const containerWidth = this.sliderInner.clientWidth;
     if (containerWidth >= this.tempTotalWidth) {
       this.buttons.classList.add(this.hiddenClass);
-    } else {
+    }
+    else {
       this.buttons.classList.remove(this.hiddenClass);
     }
   }
 };
 
-slider.getGap = function() {
+slider.getGap = function () {
   const opts = getResponsiveOptions(this.responsive);
   return opts['gutter'];
 };
 
-slider.getItemsToShow = function() {
+slider.getItemsToShow = function () {
   const opts = getResponsiveOptions(this.responsive);
   return opts['items'];
 };
 
-slider.getPreview = function() {
+slider.getPreview = function () {
   const opts = getResponsiveOptions(this.responsive);
-  if (opts['preview']){
+  if (opts['preview']) {
     return parseInt(opts['preview'], 10);
   }
 
   return 0;
-}
+};
 
-slider.checkPager = function() {
-
+slider.checkPager = function () {
   if (this.pager) {
-
-    if(this.pager.getPageCount() === 1) {
+    if (this.pager.getPageCount() === 1) {
       this.pagerEl.classList.add(this.hiddenClass);
-    } else {
+    }
+    else {
       this.pagerEl.classList.remove(this.hiddenClass);
     }
 
     this.slider.querySelectorAll(
-        '.slider-pager-item').forEach((sliderItem) => {
+      '.slider-pager-item').forEach((sliderItem) => {
       sliderItem.classList.remove('active');
     });
 
@@ -222,7 +222,7 @@ slider.checkPager = function() {
   }
 };
 
-const makeSlider = function(sliderElement, responsive, hiddenClass) {
+const makeSlider = function (sliderElement, responsive, hiddenClass) {
   const obj = Object.create(slider);
   obj.init(sliderElement, responsive, hiddenClass);
   return obj;
