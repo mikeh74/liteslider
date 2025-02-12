@@ -3,23 +3,56 @@
 Lite Slider is a simple slider component that uses CSS and JavaScript to create
 a lightweight and accessible alternative to popular slider libraries.
 
+## Installation
+
+There are a couple of ways to install the package, you could download and install
+it locally in your project or you could install from npm and include it in your
+standard project build.
+
+### Local Installation
+
+If you download and install this package locally in your project then do the
+following:
+
+1. Download the package and extract it to your project directory.
+2. Include the CSS in your HTML file:
+
+    ```html
+    <link rel="stylesheet" href="./liteslider/dist/slider.css">
+    ```
+
+3. Include the JavaScript file in your HTML file:
+
+    ```html
+    <script src="./liteslider/dist/index.js"></script>
+    <script>
+      slider();
+    </script>
+    ```
+
+### NPM Installation
+
+To install the package via npm, run the following command in your project
+directory:
+
+```sh
+npm install -D liteslider
+```
+
+Assuming you are using a module bundler like Webpack, you can import the CSS
+and JavaScript in your JavaScript file:
+
+```js
+import { slider } from 'liteslider';
+
+slider();
+```
+
+Depending on your CSS setup you might want to include the CSS reference in your
+webpack setup or you might want to keep it separate in which case you could
+just copy the dist/slider.css file to somewhere locally in your project.
+
 ## Quick Start
-
-Include the CSS:
-
-```
-<link rel="stylesheet" href="./liteslider/css/slider.css">
-```
-
-The slider.js is setup as an es6 module so can be included into a webpage like
-this:
-
-```
-  <script type="module">
-    import slider from './liteslider/slider.js';
-    slider();
-  </script>
-```
 
 Basic example:
 

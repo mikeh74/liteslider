@@ -1,5 +1,5 @@
 // Dependencies: slider-factory.js, pager-factory.js, utils.js
-import makeSlider from './src/slider-factory.js';
+import makeSlider from './slider-factory.js';
 
 /**
  * slider is just a wrapper function that initialises the slider

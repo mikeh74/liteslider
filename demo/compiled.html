@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+
+  <style>
+    body {
+      overflow-x: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .container {
+      max-width: 1000px;
+      padding: 1rem;
+      margin: auto;
+    }
+
+    .demo-box {
+      padding: 1.5rem;
+      background-color: hsl(182, 25%, 70%);
+      height: 100%;
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .svg-btn-icon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../css/slider.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Lite Slider</h1>
+
+    <p>See the <a href="https://github.com/mikeh74/liteslider#readme">README.md</a> for more information.</p>
+
+    <h2>Example Slider with elements with links</h2>
+
+    <p>If elements have links then they are focusable so you may want to add tabindex="-1" to the button elements so that
+      a keyboard user doesn't need to tab over them.
+    </p>
+
+    <div class="slider">
+      <div class="slider-nav hidden">
+        <button tabindex="-1" type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+          </svg>
+        </button>
+        <button tabindex="-1" type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img1.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img2.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img3.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img4.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img5.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img6.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img7.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img8.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img9.jpg"></a></div>
+      </div>
+    </div>
+
+    <h2>Example Slider with pager </h2>
+
+    <p>To add pager / dot style navigation you just need to add an extra
+      div with the class 'slider-pager'.</p>
+
+    <div class="slider">
+      <div class="slider-nav hidden">
+        <button type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+          </svg>
+        </button>
+        <button type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner" tabindex="0">
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img8.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img9.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img10.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img8.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img9.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img10.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img8.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img9.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img10.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img8.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img9.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img10.jpg"></div>
+      </div>
+      <div class="slider-pager hidden"></div>
+    </div>
+
+    <h2>Example with custom settings</h2>
+
+    <div class="slider2">
+      <div class="slider-nav hidden">
+        <button tabindex="-1" type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+          </svg>
+
+        </button>
+        <button tabindex="-1" type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider-wrapper">
+        <div class="slider-inner">
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img1.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img2.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img3.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img4.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img5.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img6.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img7.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img8.jpg"></a></div>
+          <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img9.jpg"></a></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Example with custom settings</h2>
+
+    <div class="slider2">
+      <div class="slider-inner">
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img1.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img2.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img3.jpg"></a></div>
+        <div class="slider-item"><a href="#" aria-label="Foobar"><img class="four-three" alt="" src="./images/img4.jpg"></a></div>
+      </div>
+      <div class="slider-pager hidden"></div>
+    </div>
+
+
+    <h2>Example with custom settings 2</h2>
+
+    <div class="slider3">
+      <div class="slider-nav d-none">
+        <button type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+          </svg>
+
+        </button>
+        <button type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img4.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img5.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img6.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img7.jpg"></div>
+        <div class="slider-item"><img class="four-three" alt="" src="./images/img8.jpg"></div>
+        <!-- <div class="slider-item"><img class="four-three" alt="" src="./images/img9.jpg"></div> -->
+      </div>
+    </div>
+
+    <h2>Example Slider where buttons hidden on desktop</h2>
+
+    <p>In this example the buttons will remain hidden on desktop as there are
+      only four elements in the slider (which all show in the viewport on
+      desktop with the default settings).</p>
+
+    <div class="slider">
+      <div class="slider-inner">
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img1.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img2.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img3.jpg"></div>
+        <div class="slider-item"><img class="three-two" alt="" src="./images/img4.jpg"></div>
+      </div>
+      <div class="slider-nav hidden">
+        <button type="button" class="slider-button slider-prev">Previous</button>
+        <button type="button" class="slider-button slider-next">Next</button>
+      </div>
+      <div class="slider-pager hidden"></div>
+    </div>
+
+    <h2>Example with 'card' style content</h2>
+
+    <div class="slider2">
+      <div class="slider-nav hidden">
+        <button tabindex="-1" type="button" class="slider-button slider-prev">
+          <span class="hidden">Previous</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+          </svg>
+        </button>
+        <button tabindex="-1" type="button" class="slider-button slider-next">
+          <span class="hidden">Next</span>
+          <svg class="svg-btn-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="slider-inner">
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, rerum temporibus quidem voluptatum amet
+              ea non rem adipisci ipsa itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, rerum temporibus quidem voluptatum amet
+              ea non rem adipisci ipsa itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
+              obcaecati corporis rerum unde, magni, et atque commodi laboriosam
+              minima voluptates molestiae? Ipsum consectetur deleniti dolor,
+              debitis tempore quia esse quis!</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+        <div class="slider-item">
+          <div class="demo-box">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              itaque recusandae</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../dist/index.js"></script>
+
+  <script>
+    slider();
+
+    slider({
+      container: '.slider2',
+      responsive: {
+        0: {
+          items: 1,
+          gutter: 10,
+          preview: 50,
+        },
+        576: {
+          items: 2,
+          gutter: 20,
+        },
+        992: {
+          items: 3,
+          gutter: 30,
+        },
+      },
+    });
+
+    slider({
+      container: '.slider3',
+      responsive: {
+        0: {
+          items: 3,
+          gutter: 0,
+        },
+        576: {
+          items: 5,
+          gutter: 20,
+        },
+        992: {
+          items: 8,
+          gutter: 30,
+        },
+      },
+      hiddenClass: 'd-none',
+    });
+
+  </script>
+</body>
+
+</html>
