@@ -29,10 +29,6 @@
       display: none;
     }
 
-    .slider2 {
-      position: relative;
-    }
-
   </style>
 
   <link rel="stylesheet" href="../dist/slider.css">
@@ -48,22 +44,23 @@
 
     <h2>Example Slider with elements with links</h2>
 
-    <p>If elements have links then they are focusable so you may want to add tabindex="-1" to the button elements so that
-      a keyboard user doesn't need to tab over them.
+    <p>If elements have links then they are focusable so you may want to add
+      tabindex="-1" to the button elements so that a keyboard user doesn't need
+      to tab over them.
     </p>
 
-    <div class="slider">
+    <div class="slider slider-button-flex">
       <div class="slider-nav hidden">
-        <button tabindex="-1" type="button" class="slider-button slider-prev">
+        <button type="button" class="slider-button slider-prev">
           <span class="hidden">Previous</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#000000" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z" />
           </svg>
         </button>
-        <button tabindex="-1" type="button" class="slider-button slider-next">
+        <button type="button" class="slider-button slider-next">
           <span class="hidden">Next</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#000000" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z" />
           </svg>
         </button>
       </div>
@@ -91,13 +88,13 @@
           <button type="button" class="slider-button slider-prev">
             <span class="hidden">Previous</span>
             <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+              <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z" />
             </svg>
           </button>
           <button type="button" class="slider-button slider-next">
             <span class="hidden">Next</span>
             <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+              <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z" />
             </svg>
           </button>
         </div>
@@ -154,14 +151,14 @@
         <button tabindex="-1" type="button" class="slider-button slider-prev">
           <span class="hidden">Previous</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z" />
           </svg>
 
         </button>
         <button tabindex="-1" type="button" class="slider-button slider-next">
           <span class="hidden">Next</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z" />
           </svg>
         </button>
       </div>
@@ -198,14 +195,14 @@
         <button type="button" class="slider-button slider-prev">
           <span class="hidden">Previous</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z" />
           </svg>
 
         </button>
         <button type="button" class="slider-button slider-next">
           <span class="hidden">Next</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z" />
           </svg>
         </button>
       </div>
@@ -249,13 +246,13 @@
         <button tabindex="-1" type="button" class="slider-button slider-prev">
           <span class="hidden">Previous</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z"/>
+            <path class="slider-button-svg-path" d="M 67 0 L 17 50 L 67 100 L 83 84 L 49 50 L 83 16 L 67 0 Z" />
           </svg>
         </button>
         <button tabindex="-1" type="button" class="slider-button slider-next">
           <span class="hidden">Next</span>
           <svg class="slider-button-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z"/>
+            <path class="slider-button-svg-path" d="M 33 0 L 83 50 L 33 100 L 17 84 L 51 50 L 17 16 L 33 0 Z" />
           </svg>
         </button>
       </div>
@@ -293,7 +290,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -301,7 +298,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -309,7 +306,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -317,7 +314,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -325,7 +322,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -333,7 +330,7 @@
           <div class="demo-box">
             <h3>Lorem Ipsum</h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere,
-              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa 
+              rerum temporibus quidem voluptatum amet ea non rem adipisci ipsa
               itaque recusandae</p>
           </div>
         </div>
@@ -342,10 +339,9 @@
 
   </div>
 
-  <script type="module">
+  <script src="../dist/index.js"></script>
 
-    import slider from '../index.js';
-
+  <script>
     slider();
 
     slider({
@@ -353,15 +349,19 @@
       responsive: {
         0: {
           items: 2,
-          gutter: 10,
+          gutter: 8,
         },
         768: {
           items: 3,
-          gutter: 20,
+          gutter: 16,
         },
         992: {
           items: 4,
-          gutter: 30,
+          gutter: 16,
+        },
+        1200: {
+          items: 5,
+          gutter: 16,
         },
       },
     });
@@ -375,11 +375,11 @@
         },
         576: {
           items: 5,
-          gutter: 20,
+          gutter: 16,
         },
         992: {
           items: 8,
-          gutter: 30,
+          gutter: 16,
         },
       },
       hiddenClass: 'd-none',

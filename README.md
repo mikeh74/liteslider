@@ -1,10 +1,16 @@
 # Lite Slider
 
-Lite Slider is a simple JavaScript package that uses CSS and JavaScript to create a lightweight and accessible alternative to popular slider and carousel libraries.
+Lite Slider is a simple JavaScript package that uses CSS and JavaScript to
+create a lightweight and accessible alternative to popular slider and carousel
+libraries.
 
-It does not provide automatic scrolling or loop back to the start. It relies on native browser scrolling and minimal vanilla JavaScript.
+It does not provide automatic scrolling or loop back to the start. It relies on
+native browser scrolling and minimal vanilla JavaScript.
 
-This is a very lightweight option. If you need additional functionality, consider using a more fully-featured library like Slick Slider or Owl Carousel.
+This is a very lightweight option. If you need additional functionality,
+consider using a more fully-featured library like
+[Slick slider](https://kenwheeler.github.io/slick/) or
+[Tiny slider](https://github.com/ganlanyuan/tiny-slider).
 
 
 ## Installation
@@ -67,7 +73,7 @@ Basic example:
 </div>
 ```
 
-See demo/index.html for more [examples](https://mikeh74.github.io/liteslider/).
+See demo/index.html for more [examples](https://mikeh74.github.io/liteslider/demo/).
 
 
 ## Slider CSS

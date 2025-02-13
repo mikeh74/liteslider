@@ -28,10 +28,10 @@
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    // IE and Edge
     -ms-overflow-style: none;
-    /* IE and Edge */
+    // Firefox
     scrollbar-width: none;
-    /* Firefox */
 
     &::-webkit-scrollbar {
       display: none;
