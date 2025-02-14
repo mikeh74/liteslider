@@ -15,10 +15,6 @@ consider using a more fully-featured library like
 
 ## Installation
 
-You can install the package locally in your project or via npm.
-
-### Local Installation
-
 1. Download the package and extract it to your project directory.
 2. Include the CSS in your HTML file:
     ```html
@@ -32,23 +28,6 @@ You can install the package locally in your project or via npm.
     </script>
     ```
 
-### NPM Installation
-
-To install the package via npm, run the following command in your project directory:
-```sh
-npm install -D liteslider
-```
-
-Assuming you are using a module bundler like Webpack, you can import the CSS and JavaScript in your JavaScript file:
-
-```js
-import { slider } from 'liteslider';
-slider();
-```
-
-Depending on your CSS setup, you might want to include the CSS reference in your Webpack setup or keep it separate. You can copy the `dist/slider.css` file to somewhere locally in your project or use the uncompiled SCSS found in `src/slider.scss`.
-
-
 ## Quick Start
 
 Basic example:
@@ -60,15 +39,15 @@ Basic example:
     <button type="button" class="slider-button slider-next">Next</button>
   </div>
   <div class="slider-inner">
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img1.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img2.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img3.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img4.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img5.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img6.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img7.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img8.jpg"></div>
-    <div class="slider-item"><img class="four-three" alt="" src="./images/img9.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img1.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img2.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img3.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img4.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img5.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img6.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img7.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img8.jpg"></div>
+    <div class="slider-item"><img alt="" src="./images/img9.jpg"></div>
   </div>
 </div>
 ```

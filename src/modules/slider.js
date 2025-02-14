@@ -16,20 +16,24 @@ const slider = function ({
   container = '.slider',
   responsive = {
     0: {
-      items: 3,
-      gutter: 20,
+      items: 2,
+      gutter: 16,
     },
     576: {
       items: 3,
-      gutter: 20,
+      gutter: 16,
     },
     768: {
-      items: 6,
-      gutter: 20,
+      items: 4,
+      gutter: 16,
     },
     992: {
+      items: 5,
+      gutter: 16,
+    },
+    1200: {
       items: 6,
-      gutter: 20,
+      gutter: 16,
     },
   },
   hiddenClass = 'hidden',
