@@ -234,10 +234,18 @@ function isActive(item, elements, activeIsSet, slider) {
  * @param {HTMLElement} prevButton
  * @param {HTMLElement} nextButton
  */
-function checkButtonState(sliderInner, prevButton, nextButton) {
+function checkButtonState(
+  sliderInner,
+  prevButton,
+  nextButton,
+  btnClick = false) {
   if (prevButton) {
     if (sliderInner.scrollLeft < 50) {
       prevButton.setAttribute('disabled', true);
+      // set focus to the next button
+      if (btnClick) {
+        nextButton.focus();
+      }
     }
     else {
       prevButton.removeAttribute('disabled');
@@ -249,6 +257,10 @@ function checkButtonState(sliderInner, prevButton, nextButton) {
   if (nextButton) {
     if (sliderInner.scrollLeft >= scrollMax - 50) {
       nextButton.setAttribute('disabled', true);
+      // set focus to the previous button
+      if (btnClick) {
+        prevButton.focus();
+      }
     }
     else {
       nextButton.removeAttribute('disabled');

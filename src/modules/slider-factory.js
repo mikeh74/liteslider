@@ -61,6 +61,7 @@ slider.init = function (
   this.slider = sliderEl;
   this.sliderInner = this.slider.querySelector('.slider-inner');
   this.isSliding = false;
+  this.isBtnClick = false;
 
   // Nodelist of slider items
   this.elements = this.sliderInner.querySelectorAll('.slider-item');
@@ -99,18 +100,26 @@ slider.checkButtons = function () {
   checkButtonState(
     this.sliderInner,
     this.prevButton,
-    this.nextButton);
+    this.nextButton,
+    this.isBtnClick);
+  this.isBtnClick = false;
 };
 
 slider.addListeners = function () {
   if (this.prevButton) {
     this.prevButton.addEventListener(
-      'click', this.moveToPrevious.bind(this));
+      'click', () => {
+        this.isBtnClick = true;
+        this.moveToPrevious();
+      });
   }
 
   if (this.nextButton) {
     this.nextButton.addEventListener(
-      'click', this.moveToNext.bind(this));
+      'click', () => {
+        this.isBtnClick = true;
+        this.moveToNext();
+      });
   }
 
   this._onScrollEnd();
