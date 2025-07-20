@@ -55,13 +55,19 @@ const slider = {};
 slider.init = function (
   sliderEl,
   responsive,
-    hiddenClass = 'hidden') {
+  hiddenClass = 'hidden') {
   // reference the responsive object
   this.responsive = responsive;
   this.slider = sliderEl;
   this.sliderInner = this.slider.querySelector('.slider-inner');
   this.isSliding = false;
   this.isBtnClick = false;
+
+  // Defensive check for sliderInner
+  if (!this.sliderInner) {
+    console.warn('Slider inner element not found.');
+    return;
+  }
 
   // Nodelist of slider items
   this.elements = this.sliderInner.querySelectorAll('.slider-item');
@@ -178,6 +184,16 @@ slider._keyboardNavigation = function () {
     if (e.key === 'ArrowRight') {
       e.preventDefault();
       that.moveToNext();
+    }
+
+    if (e.key === 'Home') {
+      e.preventDefault();
+      that.sliderInner.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+
+    if (e.key === 'End') {
+      e.preventDefault();
+      that.sliderInner.scrollTo({ left: that.sliderInner.scrollWidth, behavior: 'smooth' });
     }
   });
 };

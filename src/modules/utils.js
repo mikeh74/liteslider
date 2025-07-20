@@ -9,7 +9,7 @@ const getResponsiveOptions = (responsive) => {
   let responsiveItems = Object.keys(responsive).filter(
     key => key < viewportWidth);
   responsiveItems = responsiveItems.map(i => Number(i));
-  const key = Math.max(...responsiveItems);
+  const key = responsiveItems.length > 0 ? Math.max(...responsiveItems) : Math.min(...Object.keys(responsive).map(Number));
   return responsive[key];
 };
 
@@ -60,10 +60,11 @@ const _withinViewport = (element, parent) => {
  * @return {HTMLElement} - The slider item at the given index.
  */
 const _getSliderItem = (index, elements) => {
+  if (!elements || elements.length === 0) return null;
   if (typeof (index) === 'string') {
     index = parseInt(index, 10);
   }
-
+  if (isNaN(index) || index < 0 || index >= elements.length) return null;
   return elements[index];
 };
 
@@ -171,7 +172,9 @@ function _getScrollTo(container, elements, direction, gutter) {
  * @param {Object} responsive
  */
 const slide = function (direction, sliderInner, gap) {
+  if (!sliderInner) return;
   const els = sliderInner.querySelectorAll('.slider-item');
+  if (!els || els.length === 0) return;
   const scrollPosition = _getScrollTo(
     sliderInner, els, direction, gap);
   sliderInner.scrollTo({
@@ -299,9 +302,11 @@ const setItemSize = function (slider) {
  * @param {HTMLElement} sliderInner
  */
 function handlePagerClick(element, slider, sliderInner) {
-  // data-scrollto is the stored value of each pager item that indicates
-  // how far to scroll the slider when the pager item is clicked
-  const scrollTo = element.getAttribute('data-scrollto');
+  if (!element || !slider || !sliderInner) return;
+  // Defensive: ensure we have the correct element
+  const pagerItem = element.closest('.slider-pager-item');
+  if (!pagerItem) return;
+  const scrollTo = pagerItem.getAttribute('data-scrollto');
 
   if (scrollTo) {
     // remove active class from all pager items
@@ -311,11 +316,11 @@ function handlePagerClick(element, slider, sliderInner) {
       });
 
     // add active class to the clicked pager item
-    element.classList.add('active');
+    pagerItem.classList.add('active');
 
     // scroll the slider to the value of the pager item
     sliderInner.scrollTo({
-      left: element.getAttribute('data-scrollto'),
+      left: scrollTo,
       behavior: 'smooth',
     });
   }
